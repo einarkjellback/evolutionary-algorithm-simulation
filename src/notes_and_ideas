@@ -1,0 +1,35 @@
+This is a project to implement genetic programming on a practical problem. The practical problem is the simulation outlined below.
+
+*** Simulation outline ***
+A simulation consists of n agents. Agents must collect points represented as tokens scattered in a 2D environment.
+The goal is to collect the maximum number of points. Additionally each agent has some offensive and defensive capabilities,
+with which they can either attack other agents, potentially eliminating them, or defend themselves from such attacks.
+Each agent has a certain amount of action points at disposition that they can exchange for each use of the offensive or
+defensive capability. The agents must optimize their behaviour to collect tokens while keeping the use of capabilities
+at a minimum.
+
+
+* Why genetic programming is a good choice to optimize agents *
+The choice of which direction to move and which capabilites to use at any given point is a combinatorial problem.
+That is, I can use a capability an integer number of times, but not, say, 3.14 number of times. Direction and speed are
+float types, but the higher-level behaviour that emerge from the combination of these in response to distinct events,
+such as seeing a token or another agent, occurring across a timescale might be distinct and thus a combinatorial problem.
+
+
+** First iteration **
+This will contain the bare minimum.
+- Agents will not be aware of other agents
+- Agents will be able to control direction, but not speed
+- Agents can not crash with each other
+- Tokens will appear randomly on the field
+The result of this simulation after n generations should be an agent which immediately seeks toward tokens and the
+center of the screen if no tokens are present.
+
+
+
+
+* Outstanding questions *
+- How to do crossover between two (or more) parents?
+- How to do mutation of an agent? (Possibly easier than crossover)
+- How to represent chromosomes?
+    - Define a number of events (sensory inputs) that an agent will listen for.
